@@ -1,41 +1,34 @@
 const {log} = require('utils-nxg-cg');
-const {sftp,objectSFTPOpt,objectSFTPReq} = require('sftp-cg-lib');
-const fs = require('fs');
+const {sftp, objectSFTPReq} = require('sftp-cg-lib');
 const express = require('express');
 const app = express();
 app.use(express.json());
-app.post('/', async(req, res)=>{
-  let properties = {...objectSFTPReq};  
-  //Basic parameters for stablish connection with sftp server.  
-  properties.host=req.body.host;
-  properties.port=req.body.port;
-  properties.username=req.body.username;
-  properties.password=req.body.password;
-  properties.key=req.body.key;
-  properties.flag=req.body.flag;
-  properties.path=req.body.path;
-  properties.file=req.body.file;
-  properties.content=req.body.content;
-  properties.nameNewFile=req.body.nameNewFile;
-  properties.nameOldFile=req.body.nameOldFile;
-  properties.nameDeleteFile=req.body.nameDeleteFile;
-  properties.createDirectory=req.body.createDirectory;
-  properties.deleteDirectory=req.body.deleteDirectory;
-  properties.localDirectory=req.body.localDirectory;
-  properties.encoding=req.body.encoding;
+app.post('/', async (req, res) => {
+    let properties = {...objectSFTPReq};
+    //Basic parameters for establish connection with sftp server.
+    properties.host = req.body.host;
+    properties.port = req.body.port;
+    properties.username = req.body.username;
+    properties.password = req.body.password;
+    properties.key = req.body.key;
+    properties.flag = req.body.flag;
+    properties.path = req.body.path;
+    properties.file = req.body.file;
+    properties.content = req.body.content;
+    properties.nameNewFile = req.body.nameNewFile;
+    properties.nameDirectory = req.body.nameDirectory;
+    properties.encoding = req.body.encoding;
 
-  try{
+    try {
 
-    const result = await sftp({data:properties},{});
-    log.info("resultado", result);
-    res.json(result);
-  }
-
-  catch(err){
-    res.status(500).json(err);
-  }
+        const result = await sftp({data: properties}, {});
+        log.info("resultado", result);
+        res.json(result);
+    } catch (err) {
+        res.status(400).json(err);
+    }
 })
 
-app.listen(3000, ()=>{
-  console.log("Server ejecutandose en el puerto 3000");
+app.listen(3000, () => {
+    console.log("Server ejecutandose en el puerto 3000");
 });
