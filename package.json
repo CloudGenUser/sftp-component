@@ -1,5 +1,5 @@
 {
-  "name": "sftp",
+  "name": "sftp-component",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,8 +13,9 @@
     "@openintegrationhub/ferryman": "^2.1.0",
     "@openintegrationhub/ferryman-1-7": "npm:@openintegrationhub/ferryman@^1.7.1",
     "express": "^4.18.1",
+    "loging-elastic-cg-lib": "^0.1.3",
     "msgbroker-nxg-cg": "^0.1.0",
-    "sftp-cg-lib": "1.0.9",
-    "utils-nxg-cg": "^1.0.7"
+    "sftp-cg-lib": "1.0.11",
+    "utils-nxg-cg": "^1.0.10"
   }
 }
