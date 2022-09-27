@@ -6,9 +6,9 @@
   "credentials": {
   },
   "triggers": {
-    "testTriggers": {
-      "title": "Test...",
-      "main": "./lib/triggers/processTrigger.js"
+    "sftp_source": {
+      "title": "SFTP Component",
+      "main": "./lib/actions/sftp.js"
     }
   },
   "actions": {
