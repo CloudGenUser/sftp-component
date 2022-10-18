@@ -11,7 +11,7 @@ This component allows to open a connection with a sftp server.
 - Create a directory in an specific path.
 - Delete the directory and their content.
 - Delete a file in an specific path.
-- Dowload the directory inside an sftp in a local machine.
+- Download the directory inside an sftp in a local machine.
 - Get the content of a file, an specific enconding can be requested.
 - Get the list of files and directgories inside a specific path.
 - Rename a file inside a path.
