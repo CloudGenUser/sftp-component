@@ -49,7 +49,6 @@ describe('Suite to test a sftp component', () => {
         properties.path += "newDir";
         properties.content = base64;
         properties.file = "saveNewFile.txt";
-        console.log(properties)
         const {result} = await sftp({}, properties, true);
         expect(result).toContain("Uploaded data stream to");
     });
@@ -68,7 +67,6 @@ describe('Suite to test a sftp component', () => {
         properties.flag = "GETFILE";
         properties.path += "newDir";
         properties.file = "saveNewFile.txt";
-
         const {result} = await sftp({}, properties, true);
 
         expect(result).toContain("dGVzdCBvZiBhIHNmdHAgY29tcG9uZW50");
@@ -232,7 +230,7 @@ describe('Suite to test a sftp component', () => {
         await expect(sftp({}, properties2, true)).rejects.toThrow();
     });
 
-    test('test sftp to SAVEFILE with right parameters', async () => {
+    test('test sftp to SAVEFILE with right parameters other server', async () => {
         properties2.flag = "SAVEFILE";
         properties2.content = base64;
         properties2.file = "saveNewFile.txt";
@@ -246,8 +244,6 @@ describe('Suite to test a sftp component', () => {
         properties.file = "Movies.json";
         properties.encoding = 'utf8'
         const {result} = await sftp({}, properties, true);
-        console.log(JSON.parse(result));
-        console.log(convertToObject(result))
-        await expect(result).toContain("dGVzdCBvZiBhIHNmdHAgY29tcG9uZW50");
+        await expect(convertToObject(result)).toHaveProperty("title");
     });
 })

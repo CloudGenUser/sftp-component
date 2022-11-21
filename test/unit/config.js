@@ -6,6 +6,7 @@ properties.port = 22;
 properties.username = "ubuntu";
 opt.key = './Keypair6Delta.ppk';
 opt.path = '/home/ubuntu/OIH/componentes/temp/input/';
+properties = {...properties, ...opt};
 
 //other server
 let properties2 = {...objectSFTPReq};
